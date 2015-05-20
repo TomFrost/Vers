@@ -22,7 +22,7 @@ vers.translate(5, 6, '5to6', '6to5');
 
 describe('Vers', function() {
   it('should find the shortest path', function() {
-    var path = vers._findPath(1, 4, true);
+    var path = vers._findPath(4, 1);
     console.log(path);
   });
 });
