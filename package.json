@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha -R spec --recursive test"
+    "test": "mocha -R spec --recursive test",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "chai": "^2.3.0",
     "chai-as-promised": "^5.0.0",
+    "eslint": "^0.21.2",
     "mocha": "^2.2.5"
   }
 }
