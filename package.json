@@ -1,0 +1,34 @@
+{
+  "name": "vers",
+  "version": "0.1.0",
+  "description": "Data model versioning for Javascript",
+  "main": "lib/vers.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha -R spec --recursive test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/TechnologyAdvice/Vers"
+  },
+  "keywords": [
+    "data",
+    "model",
+    "version",
+    "upgrade",
+    "downgrade"
+  ],
+  "author": "TechnologyAdvice",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TechnologyAdvice/Vers/issues"
+  },
+  "homepage": "https://github.com/TechnologyAdvice/Vers",
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "chai-as-promised": "^5.0.0",
+    "mocha": "^2.2.5"
+  }
+}
