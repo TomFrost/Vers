@@ -1,0 +1,9 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "rules": {
+    "no-console": 0                 // http://eslint.org/docs/rules/no-console
+  }
+}
