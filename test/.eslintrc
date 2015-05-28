@@ -4,6 +4,7 @@
     "mocha": true
   },
   "rules": {
-    "no-console": 0                 // http://eslint.org/docs/rules/no-console
+    "no-console": 0,                // http://eslint.org/docs/rules/no-console
+    "new-cap": 0                    // http://eslint.org/docs/rules/new-cap
   }
 }
