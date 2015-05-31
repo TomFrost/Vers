@@ -2,13 +2,16 @@
   "name": "vers",
   "version": "0.1.0",
   "description": "Data model versioning for Javascript",
-  "main": "lib/vers.js",
+  "main": "lib/Vers.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha -R spec --recursive test",
-    "lint": "eslint ."
+    "test": "npm run lint && npm run test-cov && npm run check-cov",
+    "lint": "eslint .",
+    "test-cov": "istanbul cover _mocha -- -R spec test/Vers.js",
+    "check-cov": "istanbul check-coverage --statements 90 --functions 90 --branches 90 --lines 90",
+    "build": "gulp dist"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,10 @@
     "chai": "^2.3.0",
     "chai-as-promised": "^5.0.0",
     "eslint": "^0.21.2",
+    "gulp": "^3.8.11",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "istanbul": "^0.3.14",
     "mocha": "^2.2.5"
   }
 }
