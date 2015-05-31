@@ -6,7 +6,7 @@
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 var should = require('chai').should();
-var Vers = require('../lib/vers');
+var Vers = require('../lib/Vers');
 
 chai.use(chaiAsPromised);
 
@@ -48,4 +48,5 @@ describe('Vers', function() {
       inst.should.be.instanceOf(Vers);
     });
   });
+  // describe('Methods')
 });
