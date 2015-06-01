@@ -9,7 +9,8 @@
   "scripts": {
     "test": "npm run lint && npm run test-cov && npm run check-cov",
     "lint": "eslint .",
-    "test-cov": "istanbul cover _mocha -- -R spec test/Vers.js",
+    "mocha": "mocha -R spec test",
+    "test-cov": "istanbul cover _mocha -- -R spec test",
     "check-cov": "istanbul check-coverage --statements 90 --functions 90 --branches 90 --lines 90",
     "build": "gulp dist"
   },
