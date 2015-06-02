@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "mocha": "mocha -R spec test",
     "test-cov": "istanbul cover _mocha -- -R spec test",
-    "check-cov": "istanbul check-coverage --statements 90 --functions 90 --branches 90 --lines 90",
+    "check-cov": "istanbul check-coverage --statements 98 --functions 98 --branches 95 --lines 98",
     "build": "gulp dist"
   },
   "repository": {

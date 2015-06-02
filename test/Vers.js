@@ -42,9 +42,43 @@ describe('Vers', function() {
     });
     it('should override getVersion with from param', function() {
       var inst = new Vers();
-      var obj = {version: 1};
+      var testObj = {version: 1};
       inst.translate(2, 3, function(obj) { obj.version = 3; });
-      return inst.fromTo(2, 3, obj).should.become({version: 3});
+      return inst.fromTo(2, 3, testObj).should.become({version: 3});
+    });
+    it('should choose the shortest possible path', function() {
+      var inst = new Vers();
+      inst.translate(1, 2,
+        function(obj) { obj.p.push('1to2'); },
+        function(obj) { obj.p.push('2to1'); });
+      inst.translate(1, 3,
+        function(obj) { obj.p.push('1to3'); },
+        function(obj) { obj.p.push('3to1'); });
+      inst.translate(1, 5,
+        function(obj) { obj.p.push('1to5'); });
+      inst.translate(2, 3,
+        function(obj) { obj.p.push('2to3'); },
+        function(obj) { obj.p.push('3to2'); });
+      inst.translate(3, 4,
+        function(obj) { obj.p.push('3to4'); },
+        function(obj) { obj.p.push('4to3'); });
+      return Promise.all([
+        inst.fromTo(1, 4, {p: []}).should.become({p: ['1to3', '3to4']}),
+        inst.fromTo(4, 1, {p: []}).should.become({p: ['4to3', '3to1']})
+      ]);
+    });
+    it('should reject when there is no path', function() {
+      var inst = new Vers();
+      return inst.fromTo(1, 2, {}).should.reject;
+    });
+    it('should cache paths', function() {
+      var inst = new Vers();
+      inst.translate(1, 2, function(obj) { obj.version = 2; });
+      return inst.fromTo(1, 2, {}).then(function(obj) {
+        obj.should.have.property('version').equal(2);
+        inst._translators = {};
+        return inst.fromTo(1, 2, {});
+      }).should.become({version: 2});
     });
   });
   describe('fromToLatest()', function() {
