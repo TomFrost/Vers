@@ -33,11 +33,35 @@ describe('Vers', function() {
       inst.should.be.instanceOf(Vers);
     });
   });
+  describe('fromTo()', function() {
+    it('should immediately resolve if object is at target', function() {
+      var inst = new Vers();
+      var obj = {version: 2, original: true};
+      inst.translate(1, 2, function() { return {version: 2}; });
+      return inst.fromTo(2, 2, obj).should.become(obj);
+    });
+    it('should override getVersion with from param', function() {
+      var inst = new Vers();
+      var obj = {version: 1};
+      inst.translate(2, 3, function(obj) { obj.version = 3; });
+      return inst.fromTo(2, 3, obj).should.become({version: 3});
+    });
+  });
   describe('fromToLatest()', function() {
     it('should allow from to be declared', function() {
       var inst = new Vers();
       inst.translate(2, 3, function(obj) { obj.version = 3; });
       return inst.fromToLatest(2, {}).should.become({version: 3});
+    });
+    it('should allow latest to be specified', function() {
+      var inst = new Vers({latest: 'chicken'});
+      var cow = {sound: 'moo'};
+      inst.translate('cow', 'pig', function(obj) { obj.sound = 'oink'; });
+      inst.translate('cow', 'chicken', function(obj) { obj.feathers = true; });
+      return inst.fromToLatest('cow', cow).should.become({
+        sound: 'moo',
+        feathers: true
+      });
     });
   });
   describe('to()', function() {
@@ -48,9 +72,14 @@ describe('Vers', function() {
       return inst.to(2, {version: 1}).should.become({version: 2});
     });
     it('should reject if version cannot be inferred', function() {
-      var inst = new Vers(function(obj) { return obj.v; });
+      var inst = new Vers({getVersion: function(obj) { return obj.v; }});
       inst.translate(1, 2, function(obj) { obj.v = 2; });
       return inst.to(2, {}).should.reject;
+    });
+    it('should count 0 as an applicable version', function() {
+      var inst = new Vers();
+      inst.translate(0, 1, function(obj) { obj.version = 1; });
+      return inst.to(1, {version: 0}).should.become({version: 1});
     });
   });
   describe('toLatest()', function() {
@@ -67,6 +96,19 @@ describe('Vers', function() {
       inst.translate(1, 2, function(obj) { obj.version = 2; },
         function(obj) { obj.version = 1; });
       return inst.to(1, {version: 2}).should.become({version: 1});
+    });
+    it('should overwrite translators', function() {
+      var inst = new Vers();
+      inst.translate('cow', 'pig',
+        function(obj) { obj.sound = 'oink'; },
+        function(obj) { obj.sound = 'moo'; });
+      inst.translate('cow', 'pig',
+        function(obj) { obj.sound = 'OINK'; },
+        function(obj) { obj.sound = 'MOO'; });
+      return Promise.all([
+        inst.fromTo('cow', 'pig', {}).should.become({sound: 'OINK'}),
+        inst.fromTo('pig', 'cow', {}).should.become({sound: 'MOO'})
+      ]);
     });
   });
 });
