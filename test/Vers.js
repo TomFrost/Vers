@@ -64,7 +64,8 @@ describe('Vers', function() {
         function(obj) { obj.p.push('4to3'); });
       return Promise.all([
         inst.fromTo(1, 4, {p: []}).should.become({p: ['1to3', '3to4']}),
-        inst.fromTo(4, 1, {p: []}).should.become({p: ['4to3', '3to1']})
+        inst.fromTo(4, 1, {p: []}).should.become({p: ['4to3', '3to1']}),
+        inst.fromTo(3, 5, {p: []}).should.become({p: ['3to1', '1to5']})
       ]);
     });
     it('should reject when there is no path', function() {
