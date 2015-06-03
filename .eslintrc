@@ -3,21 +3,21 @@
     "node": true
   },
   "ecmaFeatures": {
-    "arrowFunctions": true,
-    "blockBindings": true,
-    "classes": true,
-    "defaultParams": true,
-    "destructuring": true,
-    "forOf": true,
+    "arrowFunctions": false,
+    "blockBindings": false,
+    "classes": false,
+    "defaultParams": false,
+    "destructuring": false,
+    "forOf": false,
     "generators": false,
-    "modules": true,
-    "objectLiteralComputedProperties": true,
+    "modules": false,
+    "objectLiteralComputedProperties": false,
     "objectLiteralDuplicateProperties": false,
-    "objectLiteralShorthandMethods": true,
-    "objectLiteralShorthandProperties": true,
-    "spread": true,
-    "superInFunctions": true,
-    "templateStrings": true,
+    "objectLiteralShorthandMethods": false,
+    "objectLiteralShorthandProperties": false,
+    "spread": false,
+    "superInFunctions": false,
+    "templateStrings": false,
     "jsx": false
   },
   "rules": {
@@ -114,6 +114,7 @@
     /**
      * Style
      */
+    "max-len": [2, 79, 2],           // http://eslint.org/docs/rules/max-len
     "indent": [2, 2],                // http://eslint.org/docs/rules/
     "brace-style": [2,               // http://eslint.org/docs/rules/brace-style
       "1tbs", {
