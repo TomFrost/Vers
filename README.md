@@ -106,21 +106,25 @@ Now the `Vers` constructor is available!
 ## API
 
 ### Vers({Object} [options]) _or_ new Vers({Object} [options])
+
 Constructs a new instance of Vers. Each data model should have one instance to
 define all of its versions. The options object is optional. The available
 options are:
 
 #### {Function} options.getVersion
+
 A function that accepts your object as its only argument, and returns either
 the current version identifier of the object as a number or string, or a
 Promise that resolves to the current version identifier. By default, Vers
 will use the object's `version` property if it exists, or `1` if it doesn't.
 
 #### {number|string} options.latest
+
 The latest version identifier available for this model. If not specified, Vers
 will detect the latest version by calling
 
 ### addConverter({number|string} fromVer, {number|string} toVer, {Function} forward, {Function} [back])
+
 Adds a converter to this instance that knows how to change an object from one
 version to another, and optionally, how to go back again. If you're using Vers
 to power a versioned REST API, then telling it how to go back again is
@@ -145,22 +149,26 @@ Any method is fine! But keep in mind: modifying the object directly _will_ also
 modify the source object. Vers doesn't clone your objects.
 
 ### {Promise.<Object>} fromTo({number|string} fromVer, {number|string} toVer, {Object} obj)
+
 Converts an object from one version to another, using the provided `fromVer` as
 the current version instead of trying to detect it. The result is passed on
 in the form of a Promise that resolves with the object in its target version.
 
 ### {Promise.<Object>} fromToLatest({number|string} fromVer, {Object} obj)
+
 Converts an object from its current version to the latest version available,
 using the provided `fromVer` as the current version instead of trying to detect
 it. The result is passed on in the form of a Promise that resolves with the
 object in its target version.
 
 ### {Promise.<Object>} to({number|string} toVer, {Object} obj)
+
 Converts an object from its auto-detected current version to the `toVer`
 version. The result is passed on in the form of a Promise that resolves with
 the object in its target version.
 
 ### {Promise.<Object>} toLatest({Object} obj)
+
 Converts an object from its auto-detected current version to the latest version
 available. The result is passed on in the form of a Promise that resolves with
 the object in its target version.
