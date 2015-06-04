@@ -83,8 +83,8 @@ browsers, just include a Promise library such as
 Using callbacks instead of Promises? Promises are first-class in Vers, but you
 can convert back to callbacks with Bluebird's [asCallback](https://github.com/petkaantonov/bluebird/blob/master/API.md#ascallbackfunction-callback--object-options---promise)
 function. With Promises so integral to Vers' design, callbacks are not baked
-in, and not added on top so that the library stays lean and mean. Give Promises
-a try!
+in, and not added on top so that the library stays lean and mean for Promise
+users. Give Promises a try!
 
 For Node.js, type this in your project folder:
 
