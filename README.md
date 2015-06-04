@@ -11,6 +11,7 @@ for every individual version
 - Only code against the latest version of your data -- no messy if-statements
 throughout your codebase to check for earlier versions or properties in
 different places
+- Update your backends and your frontends on their own schedules 
 - Roll out new SQL schemas and update your code for the new changes
 independently, without coordinating a precise rollout, and with no downtime
 - For the love of all things holy _stop trying to update every record in your
@@ -81,8 +82,9 @@ browsers, just include a Promise library such as
 
 Using callbacks instead of Promises? Promises are first-class in Vers, but you
 can convert back to callbacks with Bluebird's [asCallback](https://github.com/petkaantonov/bluebird/blob/master/API.md#ascallbackfunction-callback--object-options---promise)
-function. With Promises so integral to Vers' function, callbacks are not baked
-in. Give Promises a try!
+function. With Promises so integral to Vers' design, callbacks are not baked
+in, and not added on top so that the library stays lean and mean. Give Promises
+a try!
 
 For Node.js, type this in your project folder:
 
