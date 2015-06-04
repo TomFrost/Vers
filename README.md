@@ -3,7 +3,7 @@
          align="right" valign="top" alt="Promises/A+ logo" />
 </a>
 # Vers [![Build Status](https://travis-ci.org/TechnologyAdvice/Vers.svg?branch=master)](https://travis-ci.org/TechnologyAdvice/Vers) [![Code Climate](https://codeclimate.com/github/TechnologyAdvice/Vers/badges/gpa.svg)](https://codeclimate.com/github/TechnologyAdvice/Vers) [![Test Coverage](https://codeclimate.com/github/TechnologyAdvice/Vers/badges/coverage.svg)](https://codeclimate.com/github/TechnologyAdvice/Vers)
-Powerful data model versioning for Javascript and Node.js
+Effortless data model versioning for Javascript and Node.js
 
 ## Why do I need model versioning?
 - Support versioned REST APIs without cluttering your API code with an endpoint
