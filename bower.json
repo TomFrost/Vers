@@ -1,0 +1,29 @@
+{
+  "name": "vers",
+  "version": "0.1.0",
+  "homepage": "https://github.com/TechnologyAdvice/Vers",
+  "authors": [
+    "TechnologyAdvice <devteam@technologyadvice.com>"
+  ],
+  "description": "Powerful data model versioning for Javascript and Node.js",
+  "main": "dist/vers.min.js",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "data",
+    "model",
+    "version",
+    "upgrade",
+    "downgrade"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "coverage"
+  ]
+}
