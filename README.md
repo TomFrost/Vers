@@ -103,15 +103,14 @@ Now the `Vers` constructor is available!
     // OR:
     var vers = Vers();
 
-## The Details
-### API
-#### Vers([options]) _or_ new Vers([options])
-_Function_ **options.getVersion**: A function that accepts an object as its
+## API
+### Vers([options]) _or_ new Vers([options])
+> _Function_ **options.getVersion**: A function that accepts an object as its
 only argument, and returns either the current version identifier of the object
 as a number or string, or a Promise that resolves to the current version
 identifier. By default, Vers will use the object's `version` property if it
 exists, or `1` if it doesn't.  
-_number|string_ **options.latest**: The latest version identifier available for
+> _number|string_ **options.latest**: The latest version identifier available for
 this model. If not specified, Vers will detect the latest version by calling
 `Math.max` on each version specified in `addConverter()`. For string-based
 versions, this option should be specified.
@@ -119,12 +118,12 @@ versions, this option should be specified.
 Constructs a new instance of Vers. Each data model should have one instance to
 define all of its versions. The options object is optional.
 
-#### addConverter(fromVer, toVer, forward, [back])
-_number|string_ **fromVer**: The version to convert from  
-_number|string_ **toVer**: The version to convert to  
-_Function_ **forward**: A function that accepts an object to be converted,
+### addConverter(fromVer, toVer, forward, [back])
+> _number|string_ **fromVer**: The version to convert from  
+> _number|string_ **toVer**: The version to convert to  
+> _Function_ **forward**: A function that accepts an object to be converted,
 and moves it from `fromVer` to `toVer`.  
-_Function_ **back**: An optional function that accepts an object and moves it
+> _Function_ **back**: An optional function that accepts an object and moves it
 from `toVer` to `fromVer`.
 
 Adds a converter to this instance that knows how to change an object from one
@@ -150,38 +149,38 @@ converted as their only argument. These functions can:
 Any method is fine! But keep in mind: modifying the object directly _will_ also
 modify the source object. Vers doesn't clone your objects.
 
-#### fromTo(fromVer, toVer, obj)
-**Returns a _Promise_ that resolves to an _Object_**  
-_number|string_ **fromVer**: The starting version  
-_number|string_ **toVer**: The target version  
-_Object_ **obj**: The object to be converted
+### fromTo(fromVer, toVer, obj)
+> **Returns a _Promise_ that resolves to an _Object_**  
+> _number|string_ **fromVer**: The starting version  
+> _number|string_ **toVer**: The target version  
+> _Object_ **obj**: The object to be converted
 
 Converts an object from one version to another, using the provided `fromVer` as
 the current version instead of trying to detect it. The result is passed on
 in the form of a Promise that resolves with the object in its target version.
 
-#### fromToLatest(fromVer, obj)
-**Returns a _Promise_ that resolves to an _Object_**  
-_number|string_ **fromVer**: The starting version  
-_Object_ **obj**: The object to be converted
+### fromToLatest(fromVer, obj)
+> **Returns a _Promise_ that resolves to an _Object_**  
+> _number|string_ **fromVer**: The starting version  
+> _Object_ **obj**: The object to be converted
 
 Converts an object from its current version to the latest version available,
 using the provided `fromVer` as the current version instead of trying to detect
 it. The result is passed on in the form of a Promise that resolves with the
 object in its target version.
 
-#### to(toVer, obj)
-**Returns a _Promise_ that resolves to an _Object_**  
-_number|string_ **toVer**: The target version  
-_Object_ **obj**: The object to be converted
+### to(toVer, obj)
+> **Returns a _Promise_ that resolves to an _Object_**  
+> _number|string_ **toVer**: The target version  
+> _Object_ **obj**: The object to be converted
 
 Converts an object from its auto-detected current version to the `toVer`
 version. The result is passed on in the form of a Promise that resolves with
 the object in its target version.
 
-#### toLatest(obj)
-**Returns a _Promise_ that resolves to an _Object_**  
-_Object_ **obj**: The object to be converted
+### toLatest(obj)
+> **Returns a _Promise_ that resolves to an _Object_**  
+> _Object_ **obj**: The object to be converted
 
 Converts an object from its auto-detected current version to the latest version
 available. The result is passed on in the form of a Promise that resolves with
