@@ -5,7 +5,7 @@
   "authors": [
     "TechnologyAdvice <devteam@technologyadvice.com>"
   ],
-  "description": "Powerful data model versioning for Javascript and Node.js",
+  "description": "Effortless data model versioning for Javascript and Node.js",
   "main": "dist/vers.min.js",
   "moduleType": [
     "globals",
