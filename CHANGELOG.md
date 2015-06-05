@@ -2,7 +2,8 @@
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Development]
-Nothing yet!
+### Changed
+- Increased organization and readability in pathfinding algorithm
 
 ## v0.1.0 - 2015-06-04
 ### Added
