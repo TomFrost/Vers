@@ -6,6 +6,9 @@ addons:
   code_climate:
     repo_token:
       secure: "2005bf1ec399571b1699ec34e7e835d6c44dfdda2cf4c60128b486e22fad8dd9"
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
 after_script:
   - npm install -g codeclimate-test-reporter
   - cat coverage/lcov.info | codeclimate
