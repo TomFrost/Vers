@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "npm run lint && npm run test-cov && npm run check-cov",
+    "test": "npm run lint && npm run test-cov && npm run check-cov && npm run karma",
     "lint": "eslint .",
+    "karma": "karma start",
     "mocha": "mocha -R spec test",
     "test-cov": "istanbul cover _mocha -- -R spec test",
     "check-cov": "istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
@@ -39,6 +40,10 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.2.0",
     "istanbul": "^0.3.14",
+    "karma": "^0.12.36",
+    "karma-browserify": "^4.2.1",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.1.10",
     "mocha": "^2.2.5"
   }
 }
