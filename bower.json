@@ -8,6 +8,7 @@
   "description": "Effortless data model versioning for Javascript and Node.js",
   "main": "dist/vers.min.js",
   "moduleType": [
+    "amd",
     "globals",
     "node"
   ],

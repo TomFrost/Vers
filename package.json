@@ -13,7 +13,8 @@
     "mocha": "mocha -R spec test",
     "test-cov": "istanbul cover _mocha -- -R spec test",
     "check-cov": "istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
-    "build": "gulp dist"
+    "build": "browserify lib/Vers.js -s Vers | derequire | uglifyjs > dist/vers.min.js",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -33,17 +34,17 @@
   },
   "homepage": "https://github.com/TechnologyAdvice/Vers",
   "devDependencies": {
+    "browserify": "^10.2.4",
     "chai": "^2.3.0",
     "chai-as-promised": "^5.0.0",
+    "derequire": "^2.0.0",
     "eslint": "^0.21.2",
-    "gulp": "^3.8.11",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.2.0",
     "istanbul": "^0.3.14",
     "karma": "^0.12.36",
     "karma-browserify": "^4.2.1",
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.1.10",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "uglify-js": "^2.4.23"
   }
 }
