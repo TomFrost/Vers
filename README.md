@@ -95,7 +95,8 @@ bower:
 
     bower install vers --save
 
-Then include it on your page with:
+Then include it on your page with the following line, or by using your favorite
+module system (Vers is UMD-wrapped):
 
     <script src="path/to/vers.min.js"></script>
 
