@@ -47,5 +47,5 @@
     "mocha": "^2.2.5",
     "uglify-js": "^2.4.23"
   },
-  "types": "./index.d.ts""
+  "types": "./index.d.ts"
 }
