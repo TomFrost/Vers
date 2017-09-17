@@ -17,4 +17,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Initial release
 
-[Development]: https://github.com/TechnologyAdvice/Jexl/compare/0.1.0...HEAD
+[Development]: https://github.com/TomFrost/Jexl/compare/0.1.0...HEAD

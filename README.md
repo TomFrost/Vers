@@ -1,8 +1,4 @@
-<a href="http://promisesaplus.com/">
-    <img src="https://promises-aplus.github.io/promises-spec/assets/logo-small.png"
-         align="right" valign="top" alt="Promises/A+ logo" />
-</a>
-# Vers [![Build Status](https://travis-ci.org/TechnologyAdvice/Vers.svg?branch=master)](https://travis-ci.org/TechnologyAdvice/Vers) [![Code Climate](https://codeclimate.com/github/TechnologyAdvice/Vers/badges/gpa.svg)](https://codeclimate.com/github/TechnologyAdvice/Vers) [![Test Coverage](https://codeclimate.com/github/TechnologyAdvice/Vers/badges/coverage.svg)](https://codeclimate.com/github/TechnologyAdvice/Vers)
+# Vers [![Build Status](https://travis-ci.org/TomFrost/Vers.svg?branch=master)](https://travis-ci.org/TomFrost/Vers)
 Effortless data model versioning for Javascript and Node.js
 
 ## Why do I need model versioning?
@@ -194,5 +190,5 @@ Vers is licensed under the MIT license. Please see `LICENSE.txt` for full
 details.
 
 ## Credits
-Vers was designed and created at
-[TechnologyAdvice](http://technologyadvice.com).
+Vers was originally created at [TechnologyAdvice](http://technologyadvice.com) in Nashville, TN.
+

@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/TechnologyAdvice/Vers"
+    "url": "http://github.com/TomFrost/Vers"
   },
   "keywords": [
     "data",
@@ -27,12 +27,12 @@
     "upgrade",
     "downgrade"
   ],
-  "author": "TechnologyAdvice",
+  "author": "Tom Shawver <tom@frosteddesign.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TechnologyAdvice/Vers/issues"
+    "url": "https://github.com/TomFrost/Vers/issues"
   },
-  "homepage": "https://github.com/TechnologyAdvice/Vers",
+  "homepage": "https://github.com/TomFrost/Vers",
   "devDependencies": {
     "browserify": "^10.2.4",
     "chai": "^2.3.0",

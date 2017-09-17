@@ -1,9 +1,9 @@
 {
   "name": "vers",
   "version": "0.1.0",
-  "homepage": "https://github.com/TechnologyAdvice/Vers",
+  "homepage": "https://github.com/TomFrost/Vers",
   "authors": [
-    "TechnologyAdvice <devteam@technologyadvice.com>"
+    "Tom Shawver <tom@frosteddesign.com>"
   ],
   "description": "Effortless data model versioning for Javascript and Node.js",
   "main": "dist/vers.min.js",
