@@ -1,6 +1,6 @@
 {
   "name": "vers",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Effortless data model versioning for Javascript and Node.js",
   "main": "src/Vers.js",
   "directories": {
