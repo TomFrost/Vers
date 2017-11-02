@@ -10,7 +10,7 @@
 const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 const dirtyChai = require('dirty-chai')
-const Vers = require('../lib/Vers')
+const Vers = require('../src/Vers')
 
 chai.should()
 chai.use(chaiAsPromised)
