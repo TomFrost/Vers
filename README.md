@@ -8,10 +8,10 @@ for every individual version
 throughout your codebase to check for earlier versions or properties in
 different places
 - Update your backends and your frontends on their own schedules 
-- Roll out new SQL schemas and update your code for the new changes
+- Roll out new schemas and update your code for the new changes
 independently, without coordinating a precise rollout, and with no downtime
 - For the love of all things holy _stop trying to update every record in your
-noSQL store every time you update your data model._ Every time you pull a new
+document store every time you update your data model._ Every time you pull a new
 record from your database, just call `toLatest` on it. Done. If you save it,
 it saves as the new version. If you don't, it stays the old version and saves
 you the bandwidth/request time. Your code only ever deals with the latest
@@ -20,52 +20,53 @@ Doesn't that feel better?
 
 ## Quick start
 ```javascript
-var vers = require('vers')();
-var user = {
+const Vers = require('vers')
+const baseUser = {
   version: 1,
   firstName: 'Doug',
   lastName: 'Funnie'
-};
+}
+const userVers = new Vers()
 
 // Tell Vers how to convert from version 1 to version 2, and back again.
 // We could also use "1.0.1" to "2.4.3", 100 to 200, or "cow" to "chicken"
-vers.addConverter(1, 2, function(obj) {
+userVers.addConverter(1, 2, obj => {
   // Version 2 has user initials
-  obj.version = 2;
-  obj.initials = obj.firstName[0] + obj.lastName[0];
-}, function(obj) {
+  obj.version = 2
+  obj.initials = obj.firstName[0] + obj.lastName[0]
+}, obj => {
   // Version 1 does not
-  obj.version = 1;
-  delete obj.initials;
-});
+  obj.version = 1
+  delete obj.initials
+})
 
 // And now to go from version 2 to version 3 and back
-vers.addConverter(2, 3, function(obj) {
+userVers.addConverter(2, 3, obj => {
   // Version 3 combines the names into a single name field 
-  obj.version = 3;
-  obj.name = obj.firstName + ' ' + obj.lastName;
-  delete obj.firstName;
-  delete obj.lastName;
-}, function(obj) {
+  obj.version = 3
+  obj.name = obj.firstName + ' ' + obj.lastName
+  delete obj.firstName
+  delete obj.lastName
+}, obj => {
   // To go back to version 2, we'd need to split them up again
-  obj.version = 2;
-  var names = obj.name.split(' ');
-  obj.firstName = names[0];
-  obj.lastName = names.pop();
-  delete obj.name;
-});
+  obj.version = 2
+  const names = obj.name.split(' ')
+  obj.firstName = names[0]
+  obj.lastName = names.pop()
+  delete obj.name
+})
 
-vers.toLatest(user).then(function(user) {
+userVers.toLatest(baseUser).then(user => {
   // user is now:
   // {
   //   version: 3,
   //   initials: 'DF',
   //   name: 'Doug Funnie'
   // }
-  return vers.to(1, user);
-}).then(function(user) {
-  // user is back to the original version
-});
+  return userVers.to(1, user)
+}).then(user => {
+  // user is back to the original version defined in baseUser
+})
 ```
 
 ## Installation
@@ -76,34 +77,12 @@ necessary), as well as the latest versions of many browsers. To support older
 browsers, just include a Promise library such as
 [Bluebird](https://github.com/petkaantonov/bluebird).
 
-Using callbacks instead of Promises? Promises are first-class in Vers, but you
-can convert back to callbacks with Bluebird's [asCallback](https://github.com/petkaantonov/bluebird/blob/master/API.md#ascallbackfunction-callback--object-options---promise)
-function. With Promises so integral to Vers' design, callbacks are not baked
-in, and not added on top so that the library stays lean and mean for Promise
-users. Give Promises a try!
-
-For Node.js, type this in your project folder:
+To install, just type:
 
     npm install vers --save
 
-For the frontend, drop `dist/vers.min.js` into your project, or add it with
-bower:
-
-    bower install vers --save
-
-Then include it on your page with the following line, or by using your favorite
-module system (Vers is UMD-wrapped):
-
-    <script src="path/to/vers.min.js"></script>
-
-Now the `Vers` constructor is available!
-
-    var vers = new Vers();
-    // OR:
-    var vers = Vers();
-
 ## API
-### Vers([options]) _or_ new Vers([options])
+### new Vers([options])
 > _Function_ **options.getVersion**: A function that accepts an object as its
 only argument, and returns either the current version identifier of the object
 as a number or string, or a Promise that resolves to the current version
