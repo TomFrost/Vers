@@ -5,6 +5,8 @@
 
 /* global describe it */
 
+'use strict'
+
 const chai = require('chai')
 const chaiAsPromised = require('chai-as-promised')
 const dirtyChai = require('dirty-chai')
